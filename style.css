@@ -745,6 +745,21 @@ ul { list-style: none; }
   margin-top: .9rem;
 }
 
+.form-error {
+  font-size: .85rem;
+  color: #c0392b;
+  text-align: center;
+  margin-top: .75rem;
+}
+
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 /* Success state */
 .form-success {
   text-align: center;

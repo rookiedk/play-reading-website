@@ -211,15 +211,16 @@ if (form) {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Basic client-side validation
     const name  = document.getElementById('name');
     const email = document.getElementById('email');
+    const error = document.getElementById('formError');
     let valid = true;
 
     [name, email].forEach(field => {
       field.style.borderColor = '';
       field.style.boxShadow   = '';
     });
+    if (error) error.hidden = true;
 
     if (!name.value.trim()) {
       shake(name);
@@ -232,16 +233,26 @@ if (form) {
 
     if (!valid) return;
 
-    // Simulate submission (replace with real endpoint / Formspree / Netlify Forms etc.)
     const btn = form.querySelector('button[type="submit"]');
     btn.textContent = 'Sending…';
     btn.disabled = true;
 
-    setTimeout(() => {
-      form.hidden = true;
-      formSuccess.hidden = false;
-      formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 900);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString(),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(`Form error ${res.status}`);
+        form.hidden = true;
+        formSuccess.hidden = false;
+        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(() => {
+        btn.textContent = 'Send My Interest';
+        btn.disabled = false;
+        if (error) error.hidden = false;
+      });
   });
 }
 
