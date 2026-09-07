@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Play Reading Group - GTA</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a href="#top" class="nav-logo">
+        <span class="logo-mask">🎭</span>
+        <span>Play Reading Group - GTA</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#next">Next Play</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#past-plays">Past Plays</a></li>
+        <li><a href="#join" class="btn btn-outline">Join Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-curtain left"></div>
+    <div class="hero-curtain right"></div>
+    <div class="hero-content container">
+      <p class="hero-eyebrow">Greater Toronto Area · Est. 2010</p>
+      <h1 class="hero-headline">Just Show Up and Read</h1>
+      <p class="hero-sub">A relaxed monthly play reading for people who love the theatre, from a comfortable distance.</p>
+      <div class="hero-ctas">
+        <a href="#next" class="btn btn-primary">This Month's Play</a>
+        <a href="#join" class="btn btn-ghost">Join the Circle</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <svg width="16" height="24" viewBox="0 0 16 24"><rect x="6" y="0" width="4" height="4" rx="2"/><path d="M8 6 L8 24 M2 18 L8 24 L14 18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    </div>
+  </section>
+
+  <!-- NEW LOCATION BANNER -->
+  <div class="banner-new-location">
+    <div class="container banner-inner">
+      <span class="banner-icon">🍺</span>
+      <p id="cms-banner">Next reading: <strong><em>Dear Liar</em></strong> by Jerome Kilty · <strong>Sunday, September 20</strong> · 1:00–4:00 PM at the Royal Windsor Pub.</p>
+      <a href="#next" class="banner-link">Details →</a>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container two-col">
+      <div class="col-text">
+        <p class="section-eyebrow">Who We Are</p>
+        <h2 class="section-heading">Just a Bunch of People Who Love Plays</h2>
+        <p>The Play Reading Group is a casual monthly get-together for anyone who enjoys a good script. We're teachers, accountants, retirees, students and everyone in between.</p>
+        <p>We read, we stumble over lines, we laugh, and then we talk about the play over a pint. No pressure, no drama. Well, <em>only the good kind</em>.</p>
+        <ul class="feature-list">
+          <li>
+            <span class="feature-icon">📜</span>
+            <div><strong>The Script.</strong> Our Curator picks the play carefully and shares it with members a few days before the session. New to the group? You'll be reading blind. Which is half the fun.</div>
+          </li>
+          <li>
+            <span class="feature-icon">🎲</span>
+            <div><strong>Rotating Roles.</strong> Everyone gets a part. Roles are assigned at random by our Host.</div>
+          </li>
+          <li>
+            <span class="feature-icon">🗣️</span>
+            <div><strong>Post-Read Discussion.</strong> After we read, we talk. Context, craft, opinions. All welcome.</div>
+          </li>
+          <li>
+            <span class="feature-icon">🍻</span>
+            <div><strong>Pub Setting.</strong> <span id="cms-pub">We meet at the Royal Windsor Pub, 610 Ford Drive in Oakville. Good pints and great plays go hand in hand.</span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-image">
+        <div class="image-frame">
+          <div class="image-placeholder">
+            <span class="img-icon">🎭</span>
+            <p>Your photo here</p>
+          </div>
+          <div class="image-badge">Est. 2019</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT PLAY -->
+  <section class="section section-warm" id="next">
+    <div class="container">
+      <p class="section-eyebrow">This Month</p>
+      <h2 class="section-heading">Next Reading</h2>
+      <div class="event-card">
+        <div class="event-date-block">
+          <span class="event-month" id="cms-month">Sep</span>
+          <span class="event-day" id="cms-day">20</span>
+          <span class="event-year" id="cms-year">2026</span>
+        </div>
+        <div class="event-details">
+          <span class="event-tag" id="cms-tag">Third Sunday · 1:00–4:00 PM</span>
+          <h3 class="event-title" id="cms-title"><em>Dear Liar</em></h3>
+          <p class="play-author" id="cms-playwright">Jerome Kilty</p>
+          <p class="event-desc" id="cms-blurb">Drawn from the correspondence between George Bernard Shaw and Mrs. Patrick Campbell — actress, muse, and love interest.</p>
+          <ul class="event-meta">
+            <li>
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <span id="cms-when">Sunday, September 20, 2026 · 1:00 to 4:00 PM</span>
+            </li>
+            <li>
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span><a id="cms-maps" href="https://www.google.com/maps/search/?api=1&query=610+Ford+Drive+Oakville+ON" target="_blank" rel="noopener noreferrer">Royal Windsor Pub, 610 Ford Drive, Oakville</a></span>
+            </li>
+            <li>
+              <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+              <span id="cms-directions">South of the QEW, just below Royal Windsor Drive and Ford Drive</span>
+            </li>
+          </ul>
+          <a href="#join" class="btn btn-primary">Save a Seat</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section-dark" id="how-it-works">
+    <div class="container">
+      <p class="section-eyebrow center">A Typical Sunday</p>
+      <h2 class="section-heading center">How a Session Works</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <h3>Arrive &amp; Settle In</h3>
+          <p id="cms-arrive">Third Sunday of the month, 1:00 to 4:00 PM. Grab your drink, say hello, and claim a seat around the reading table.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <h3>Roles Assigned</h3>
+          <p>The Curator shares the script a few days ahead so returning members can have a look. At the table, roles are handed out and we do a quick character rundown before we begin.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <h3>Read Together</h3>
+          <p>We read through the full play together. Laughing, stumbling, discovering. Whether it's your first time or your fiftieth, something always surprises you.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step">
+          <div class="step-number">04</div>
+          <h3>Discuss &amp; Debrief</h3>
+          <p>Post-read, we open the floor. What surprised you? What landed? What didn't? The conversation is always lively.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PAST PLAYS -->
+  <section class="section section-warm" id="past-plays">
+    <div class="container">
+      <p class="section-eyebrow center">Our Reading History</p>
+      <h2 class="section-heading center">Plays We've Loved</h2>
+      <div class="plays-grid">
+        <div class="play-card">
+          <div class="play-genre">Comedy</div>
+          <h4>The Importance of Being Earnest</h4>
+          <p class="play-author">Oscar Wilde</p>
+          <p class="play-note">"The misadventures were legendary."</p>
+        </div>
+        <div class="play-card">
+          <div class="play-genre">Drama</div>
+          <h4>A Streetcar Named Desire</h4>
+          <p class="play-author">Tennessee Williams</p>
+          <p class="play-note">"Two members refused to put it down."</p>
+        </div>
+        <div class="play-card">
+          <div class="play-genre">Tragicomedy</div>
+          <h4>Waiting for Godot</h4>
+          <p class="play-author">Samuel Beckett</p>
+          <p class="play-note">"The discussion ran longer than the play."</p>
+        </div>
+        <div class="play-card">
+          <div class="play-genre">Drama</div>
+          <h4>Top Girls</h4>
+          <p class="play-author">Caryl Churchill</p>
+          <p class="play-note">"The dinner-party scene had the whole room."</p>
+        </div>
+        <div class="play-card">
+          <div class="play-genre">Comedy</div>
+          <h4>Noises Off</h4>
+          <p class="play-author">Michael Frayn</p>
+          <p class="play-note">"Absolute chaos. Perfect chaos."</p>
+        </div>
+        <div class="play-card">
+          <div class="play-genre">Absurdist</div>
+          <h4>The Bald Soprano</h4>
+          <p class="play-author">Eugène Ionesco</p>
+          <p class="play-note">"Nobody could stop laughing."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN -->
+  <section class="section" id="join">
+    <div class="container join-container">
+      <div class="join-text">
+        <p class="section-eyebrow">New Members Welcome</p>
+        <h2 class="section-heading">Pull Up a Chair</h2>
+        <p>We're opening up the group as we move into our new pub home. You don't need any experience. If you can read aloud and enjoy a good story, you'll fit right in.</p>
+        <ul class="join-perks">
+          <li>✓ No experience necessary</li>
+          <li>✓ Scripts provided at the session</li>
+          <li>✓ Relaxed, inclusive atmosphere</li>
+          <li id="cms-join-cadence">✓ Third Sunday each month, no ongoing commitment</li>
+          <li>✓ Great company and even better conversation</li>
+        </ul>
+      </div>
+      <div class="join-form-wrap">
+        <form class="join-form" id="joinForm" novalidate>
+          <h3>Get on the List</h3>
+          <p class="form-sub">We'll send you details about the next session and how to join.</p>
+
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Margaret Atwood" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="experience">Reading Experience</label>
+            <select id="experience" name="experience">
+              <option value="">— Select one —</option>
+              <option value="none">Complete newcomer</option>
+              <option value="some">Some theatre / book-club background</option>
+              <option value="actor">Actor / performer</option>
+              <option value="avid">Avid theatre-goer and lover of plays</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Anything else you'd like to share?</label>
+            <textarea id="message" name="message" rows="3" placeholder="Favourite playwright, questions, dietary restrictions for the pub…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary full-width">Send My Interest</button>
+          <p class="form-privacy">We'll never share your info. This is just a reading group. We promise.</p>
+        </form>
+        <div class="form-success" id="formSuccess" hidden>
+          <div class="success-icon">🎉</div>
+          <h3>You're on the list!</h3>
+          <p>We'll be in touch before the next session with all the details. See you at the pub!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mask">🎭</span>
+        <strong>GTA Play Readers</strong>
+        <p>Cold reading, warm company, great plays.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#next">Next Play</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#past-plays">Past Plays</a>
+        <a href="#join">Join Us</a>
+      </div>
+      <div class="footer-contact">
+        <p>Questions?</p>
+        <a href="#join">Use the join form</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 GTA Play Readers · Greater Toronto Area · Made with love and a lot of scripts</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

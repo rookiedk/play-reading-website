@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gtaplayreaders.com/sitemap.xml
