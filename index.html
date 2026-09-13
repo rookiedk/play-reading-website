@@ -58,7 +58,7 @@
   <div class="banner-new-location">
     <div class="container banner-inner">
       <span class="banner-icon">🍺</span>
-      <p id="cms-banner">Next reading: <strong><em>Dear Liar</em></strong> by Jerome Kilty · <strong>Sunday, September 20</strong> · 1:00–4:00 PM at the Royal Windsor Pub.</p>
+      <p id="cms-banner">Next reading: <strong><em>Dear Liar</em></strong> by Jerome Kilty · <strong>Sunday, September 20</strong> · 1:00–4:00 PM</p>
       <a href="#next" class="banner-link">Details →</a>
     </div>
   </div>
@@ -86,7 +86,7 @@
           </li>
           <li>
             <span class="feature-icon">🍻</span>
-            <div><strong>Pub Setting.</strong> <span id="cms-pub">We meet at the Royal Windsor Pub, 610 Ford Drive in Oakville. Good pints and great plays go hand in hand.</span></div>
+            <div><strong>Pub Setting.</strong> <span id="cms-pub">We meet in a cozy, private room in a pub on the Mississauga–Oakville border. Good pints and great plays go hand in hand.</span></div>
           </li>
         </ul>
       </div>
@@ -125,13 +125,14 @@
             </li>
             <li>
               <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span><a id="cms-maps" href="https://www.google.com/maps/search/?api=1&query=610+Ford+Drive+Oakville+ON" target="_blank" rel="noopener noreferrer">Royal Windsor Pub, 610 Ford Drive, Oakville</a></span>
+              <span id="cms-location">A cozy, private room in a pub on the Mississauga–Oakville border</span>
             </li>
             <li>
               <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
-              <span id="cms-directions">South of the QEW, just below Royal Windsor Drive and Ford Drive</span>
+              <span id="cms-directions">Easily reached from the 403 and the QEW, with plenty of parking</span>
             </li>
           </ul>
+          <p class="event-rsvp-note" id="cms-rsvp">The exact location is sent a week before the reading to everyone who RSVPs.</p>
           <a href="#join" class="btn btn-primary">Save a Seat</a>
         </div>
       </div>
@@ -234,53 +235,29 @@
         </ul>
       </div>
       <div class="join-form-wrap">
-        <form
-          class="join-form"
-          id="joinForm"
-          name="join"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-          novalidate
-        >
-          <input type="hidden" name="form-name" value="join" />
-          <input type="hidden" name="subject" value="New play reading signup from gtaplayreaders.com" />
-          <p class="honeypot" aria-hidden="true">
-            <label>Leave this field empty <input type="text" name="bot-field" tabindex="-1" autocomplete="off" /></label>
-          </p>
-          <h3>Get on the List</h3>
-          <p class="form-sub">We'll send you details about the next session and how to join.</p>
+        <div class="join-gateway">
+          <h3>Save your seat</h3>
+          <p class="form-sub">Register for the next reading. We'll send the exact pub location a week beforehand to everyone who RSVPs.</p>
 
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="e.g. Margaret Atwood" required />
+          <a class="gateway-card gateway-featured is-pending" id="rsvp-eventbrite" href="#join" aria-disabled="true">
+            <span class="gateway-kicker">Recommended</span>
+            <span class="gateway-name">Eventbrite</span>
+            <span class="gateway-desc">RSVP here. This is the list we use for reminders and the location email.</span>
+            <span class="gateway-cta" data-ready="Register on Eventbrite →" data-pending="Listing coming soon">Listing coming soon</span>
+          </a>
+
+          <div class="gateway-secondary">
+            <a class="gateway-card is-pending" id="rsvp-luma" href="#join" aria-disabled="true">
+              <span class="gateway-name">Luma</span>
+              <span class="gateway-desc">Prefer Luma? You can register there instead.</span>
+              <span class="gateway-cta" data-ready="Register on Luma →" data-pending="Listing coming soon">Listing coming soon</span>
+            </a>
+            <a class="gateway-card is-pending" id="rsvp-facebook" href="#join" aria-disabled="true">
+              <span class="gateway-name">Facebook</span>
+              <span class="gateway-desc">Follow the page and share the reading with friends.</span>
+              <span class="gateway-cta" data-ready="Open Facebook →" data-pending="Link coming soon">Link coming soon</span>
+            </a>
           </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required />
-          </div>
-          <div class="form-group">
-            <label for="experience">Reading Experience</label>
-            <select id="experience" name="experience">
-              <option value="">— Select one —</option>
-              <option value="none">Complete newcomer</option>
-              <option value="some">Some theatre / book-club background</option>
-              <option value="actor">Actor / performer</option>
-              <option value="avid">Avid theatre-goer and lover of plays</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Anything else you'd like to share?</label>
-            <textarea id="message" name="message" rows="3" placeholder="Favourite playwright, questions, dietary restrictions for the pub…"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary full-width">Send My Interest</button>
-          <p class="form-error" id="formError" hidden>Something went wrong. Please try again in a moment.</p>
-          <p class="form-privacy">We'll never share your info. This is just a reading group. We promise.</p>
-        </form>
-        <div class="form-success" id="formSuccess" hidden>
-          <div class="success-icon">🎉</div>
-          <h3>You're on the list!</h3>
-          <p>We'll be in touch before the next session with all the details. See you at the pub!</p>
         </div>
       </div>
     </div>
@@ -303,7 +280,7 @@
       </div>
       <div class="footer-contact">
         <p>Questions?</p>
-        <a href="#join">Use the join form</a>
+        <a href="#join">RSVP for the next reading</a>
       </div>
     </div>
     <div class="footer-bottom">

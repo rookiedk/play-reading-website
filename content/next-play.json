@@ -6,7 +6,12 @@
   "startTime": "13:00",
   "endTime": "16:00",
   "cadence": "Third Sunday of the month",
-  "venue": "Royal Windsor Pub",
-  "address": "610 Ford Drive, Oakville",
-  "directions": "South of the QEW, just below Royal Windsor Drive and Ford Drive"
+  "venue": "a cozy, private room in a pub on the Mississauga–Oakville border",
+  "directions": "Easily reached from the 403 and the QEW, with plenty of parking",
+  "locationNote": "The exact location is sent a week before the reading to everyone who RSVPs.",
+  "rsvp": {
+    "eventbrite": "",
+    "luma": "",
+    "facebook": ""
+  }
 }

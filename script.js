@@ -3,7 +3,7 @@
    If the JSON is missing or invalid, the HTML fallback stays.
    =========================== */
 const CMS_PATH = './content/next-play.json';
-const CMS_REQUIRED = ['title', 'playwright', 'date', 'startTime', 'endTime', 'venue', 'address'];
+const CMS_REQUIRED = ['title', 'playwright', 'date', 'startTime', 'endTime', 'venue'];
 
 function parseISODate(iso) {
   const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || '').trim());
@@ -71,7 +71,7 @@ function fillBanner(data, bannerDate, dashRange) {
     strongTitle,
     ` by ${data.playwright} · `,
     strongDate,
-    ` · ${dashRange} at the ${data.venue}.`
+    ` · ${dashRange}`
   );
 }
 
@@ -103,16 +103,13 @@ function applyCmsContent(data) {
   setText('cms-playwright', data.playwright);
   setText('cms-blurb', data.blurb?.trim() || '');
   setText('cms-when', `${longDate} · ${toRange}`);
+  setText('cms-location', data.venue.trim().replace(/^./, (c) => c.toUpperCase()));
   setText('cms-directions', data.directions?.trim() || '');
-  setText('cms-pub', `We meet at the ${data.venue}, ${data.address}. Good pints and great plays go hand in hand.`);
+  setText('cms-rsvp', data.locationNote?.trim() || 'The exact location is sent a week before the reading to everyone who RSVPs.');
+  setText('cms-pub', `We meet in ${data.venue}. Good pints and great plays go hand in hand.`);
   setText('cms-arrive', `${cadence}, ${toRange}. Grab your drink, say hello, and claim a seat around the reading table.`);
   setText('cms-join-cadence', `✓ ${cadenceShort(cadence)} each month, no ongoing commitment`);
-
-  const maps = document.getElementById('cms-maps');
-  if (maps) {
-    maps.textContent = `${data.venue}, ${data.address}`;
-    maps.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(data.address)}`;
-  }
+  bindRsvpLinks(data.rsvp);
 }
 
 fetch(CMS_PATH)
@@ -202,76 +199,48 @@ styleSheet.textContent = `.revealed { opacity: 1 !important; transform: translat
 document.head.appendChild(styleSheet);
 
 /* ===========================
-   JOIN FORM
+   JOIN GATEWAY
    =========================== */
-const form        = document.getElementById('joinForm');
-const formSuccess = document.getElementById('formSuccess');
+function isHttpUrl(value) {
+  return /^https?:\/\//i.test(String(value || '').trim());
+}
 
-if (form) {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
+function bindRsvpLink(id, url) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const cta = el.querySelector('.gateway-cta');
+  const href = String(url || '').trim();
 
-    const name  = document.getElementById('name');
-    const email = document.getElementById('email');
-    const error = document.getElementById('formError');
-    let valid = true;
+  if (isHttpUrl(href)) {
+    el.href = href;
+    el.target = '_blank';
+    el.rel = 'noopener noreferrer';
+    el.removeAttribute('aria-disabled');
+    el.classList.remove('is-pending');
+    if (cta) cta.textContent = cta.dataset.ready || cta.textContent;
+    return;
+  }
 
-    [name, email].forEach(field => {
-      field.style.borderColor = '';
-      field.style.boxShadow   = '';
-    });
-    if (error) error.hidden = true;
+  el.href = '#join';
+  el.removeAttribute('target');
+  el.removeAttribute('rel');
+  el.setAttribute('aria-disabled', 'true');
+  el.classList.add('is-pending');
+  if (cta) cta.textContent = cta.dataset.pending || cta.textContent;
+}
 
-    if (!name.value.trim()) {
-      shake(name);
-      valid = false;
-    }
-    if (!isValidEmail(email.value)) {
-      shake(email);
-      valid = false;
-    }
+function bindRsvpLinks(rsvp) {
+  const links = rsvp && typeof rsvp === 'object' ? rsvp : {};
+  bindRsvpLink('rsvp-eventbrite', links.eventbrite);
+  bindRsvpLink('rsvp-luma', links.luma);
+  bindRsvpLink('rsvp-facebook', links.facebook);
+}
 
-    if (!valid) return;
-
-    const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(new FormData(form)).toString(),
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error(`Form error ${res.status}`);
-        form.hidden = true;
-        formSuccess.hidden = false;
-        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      })
-      .catch(() => {
-        btn.textContent = 'Send My Interest';
-        btn.disabled = false;
-        if (error) error.hidden = false;
-      });
+document.querySelectorAll('.gateway-card.is-pending').forEach((el) => {
+  el.addEventListener('click', (e) => {
+    if (el.classList.contains('is-pending')) e.preventDefault();
   });
-}
-
-function isValidEmail(val) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
-}
-
-function shake(el) {
-  el.style.borderColor = '#c0392b';
-  el.style.boxShadow   = '0 0 0 3px rgba(192,57,43,.18)';
-  el.animate([
-    { transform: 'translateX(0)' },
-    { transform: 'translateX(-6px)' },
-    { transform: 'translateX(6px)' },
-    { transform: 'translateX(-4px)' },
-    { transform: 'translateX(4px)' },
-    { transform: 'translateX(0)' },
-  ], { duration: 350, easing: 'ease-in-out' });
-}
+});
 
 /* ===========================
    SMOOTH ANCHOR OFFSET
