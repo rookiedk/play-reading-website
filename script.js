@@ -232,8 +232,27 @@ function bindRsvpLink(id, url) {
 function bindRsvpLinks(rsvp) {
   const links = rsvp && typeof rsvp === 'object' ? rsvp : {};
   bindRsvpLink('rsvp-eventbrite', links.eventbrite);
-  bindRsvpLink('rsvp-luma', links.luma);
   bindRsvpLink('rsvp-facebook', links.facebook);
+  bindLumaCalendar(links);
+}
+
+function lumaCalendarId(rsvp) {
+  const raw = String((rsvp && rsvp.lumaCalendarId) || '').trim();
+  return /^cal-[A-Za-z0-9]+$/.test(raw) ? raw : '';
+}
+
+function bindLumaCalendar(rsvp) {
+  const calendarId = lumaCalendarId(rsvp);
+  const iframe = document.getElementById('luma-embed');
+  const wrap = document.getElementById('luma-embed-wrap');
+
+  if (iframe && calendarId) {
+    iframe.src = `https://luma.com/embed/calendar/${calendarId}/events`;
+    if (wrap) wrap.hidden = false;
+    return;
+  }
+
+  if (wrap) wrap.hidden = true;
 }
 
 document.querySelectorAll('.gateway-card.is-pending').forEach((el) => {

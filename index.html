@@ -237,24 +237,29 @@
       <div class="join-form-wrap">
         <div class="join-gateway">
           <h3>Save your seat</h3>
-          <p class="form-sub">Register for the next reading. We'll send the exact pub location a week beforehand to everyone who RSVPs.</p>
+          <p class="form-sub">Upcoming readings appear here from Luma. Register on the next one — hosts review sign-ups, then we'll send the exact pub location a week beforehand.</p>
 
-          <a class="gateway-card gateway-featured is-pending" id="rsvp-eventbrite" href="#join" aria-disabled="true">
-            <span class="gateway-kicker">Recommended</span>
-            <span class="gateway-name">Eventbrite</span>
-            <span class="gateway-desc">RSVP here. This is the list we use for reminders and the location email.</span>
-            <span class="gateway-cta" data-ready="Register on Eventbrite →" data-pending="Listing coming soon">Listing coming soon</span>
-          </a>
+          <div class="luma-embed-wrap" id="luma-embed-wrap">
+            <iframe
+              id="luma-embed"
+              src="https://luma.com/embed/calendar/cal-8UbhPVXFrbU9WpT/events"
+              title="Upcoming Play Reading Group events on Luma"
+              width="600"
+              height="420"
+              frameborder="0"
+              allowfullscreen
+              allow="fullscreen; payment"
+            ></iframe>
+          </div>
 
+          <p class="gateway-also">Also listed on</p>
           <div class="gateway-secondary">
-            <a class="gateway-card is-pending" id="rsvp-luma" href="#join" aria-disabled="true">
-              <span class="gateway-name">Luma</span>
-              <span class="gateway-desc">Prefer Luma? You can register there instead.</span>
-              <span class="gateway-cta" data-ready="Register on Luma →" data-pending="Listing coming soon">Listing coming soon</span>
+            <a class="gateway-card is-pending" id="rsvp-eventbrite" href="#join" aria-disabled="true">
+              <span class="gateway-name">Eventbrite</span>
+              <span class="gateway-cta" data-ready="Register on Eventbrite →" data-pending="Listing coming soon">Listing coming soon</span>
             </a>
             <a class="gateway-card is-pending" id="rsvp-facebook" href="#join" aria-disabled="true">
               <span class="gateway-name">Facebook</span>
-              <span class="gateway-desc">Follow the page and share the reading with friends.</span>
               <span class="gateway-cta" data-ready="Open Facebook →" data-pending="Link coming soon">Link coming soon</span>
             </a>
           </div>

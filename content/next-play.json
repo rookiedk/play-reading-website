@@ -11,7 +11,8 @@
   "locationNote": "The exact location is sent a week before the reading to everyone who RSVPs.",
   "rsvp": {
     "eventbrite": "",
-    "luma": "",
+    "luma": "https://luma.com/4tu869o2",
+    "lumaCalendarId": "cal-8UbhPVXFrbU9WpT",
     "facebook": ""
   }
 }

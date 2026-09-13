@@ -712,6 +712,28 @@ ul { list-style: none; }
   margin-bottom: 1.5rem;
 }
 
+.luma-embed-wrap {
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+.luma-embed-wrap iframe {
+  display: block;
+  width: 100%;
+  min-height: 420px;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+.gateway-also {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--clr-muted);
+  margin-bottom: .65rem;
+}
+
 .gateway-card {
   display: flex;
   flex-direction: column;
