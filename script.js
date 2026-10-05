@@ -106,7 +106,6 @@ function applyCmsContent(data) {
   setText('cms-location', data.venue.trim().replace(/^./, (c) => c.toUpperCase()));
   setText('cms-directions', data.directions?.trim() || '');
   setText('cms-rsvp', data.locationNote?.trim() || 'The exact location is sent a week before the reading to everyone who RSVPs.');
-  setText('cms-pub', `We meet in ${data.venue}. Good pints and great plays go hand in hand.`);
   setText('cms-arrive', `${cadence}, ${toRange}. Grab your drink, say hello, and claim a seat around the reading table.`);
   setText('cms-join-cadence', `✓ ${cadenceShort(cadence)} each month, no ongoing commitment`);
   bindRsvpLinks(data.rsvp);
