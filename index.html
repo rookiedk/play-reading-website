@@ -237,19 +237,18 @@
       <div class="join-form-wrap">
         <div class="join-gateway">
           <h3>Save your seat</h3>
-          <p class="form-sub">Upcoming readings appear here from Luma. Register on the next one — hosts review sign-ups, then we'll send the Oakville address in a follow-up email to everyone who RSVPs.</p>
+          <p class="form-sub">Register on Luma for this month's reading. Hosts review sign-ups, then we'll send the Oakville address in a follow-up email to everyone who RSVPs.</p>
 
-          <div class="luma-embed-wrap" id="luma-embed-wrap">
-            <iframe
-              id="luma-embed"
-              src="https://luma.com/embed/calendar/cal-8UbhPVXFrbU9WpT/events"
-              title="Upcoming Play Reading Group events on Luma"
-              width="600"
-              height="420"
-              frameborder="0"
-              allowfullscreen
-              allow="fullscreen; payment"
-            ></iframe>
+          <div class="luma-checkout-wrap" id="luma-checkout-wrap">
+            <a
+              id="luma-checkout-btn"
+              href="https://luma.com/event/evt-NOmbwZDKnyrEJ0Q"
+              class="luma-checkout--button"
+              data-luma-action="checkout"
+              data-luma-event-id="evt-NOmbwZDKnyrEJ0Q"
+            >
+              Register for Event
+            </a>
           </div>
 
           <p class="gateway-also">Also listed on</p>
@@ -293,6 +292,7 @@
     </div>
   </footer>
 
+  <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

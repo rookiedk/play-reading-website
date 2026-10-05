@@ -232,26 +232,42 @@ function bindRsvpLinks(rsvp) {
   const links = rsvp && typeof rsvp === 'object' ? rsvp : {};
   bindRsvpLink('rsvp-eventbrite', links.eventbrite);
   bindRsvpLink('rsvp-facebook', links.facebook);
-  bindLumaCalendar(links);
+  bindLumaCheckout(links);
 }
 
-function lumaCalendarId(rsvp) {
-  const raw = String((rsvp && rsvp.lumaCalendarId) || '').trim();
-  return /^cal-[A-Za-z0-9]+$/.test(raw) ? raw : '';
+function lumaEventId(rsvp) {
+  const raw = String((rsvp && rsvp.lumaEventId) || '').trim();
+  if (/^evt-[A-Za-z0-9]+$/.test(raw)) return raw;
+  const fromUrl = String((rsvp && rsvp.luma) || '').match(/evt-[A-Za-z0-9]+/);
+  return fromUrl ? fromUrl[0] : '';
 }
 
-function bindLumaCalendar(rsvp) {
-  const calendarId = lumaCalendarId(rsvp);
-  const iframe = document.getElementById('luma-embed');
-  const wrap = document.getElementById('luma-embed-wrap');
+function initLumaCheckout() {
+  if (window.luma && typeof window.luma.initCheckout === 'function') {
+    window.luma.initCheckout();
+  }
+}
 
-  if (iframe && calendarId) {
-    iframe.src = `https://luma.com/embed/calendar/${calendarId}/events`;
+function bindLumaCheckout(rsvp) {
+  const eventId = lumaEventId(rsvp);
+  const btn = document.getElementById('luma-checkout-btn');
+  const wrap = document.getElementById('luma-checkout-wrap');
+
+  if (btn && eventId) {
+    btn.href = `https://luma.com/event/${eventId}`;
+    btn.setAttribute('data-luma-action', 'checkout');
+    btn.setAttribute('data-luma-event-id', eventId);
     if (wrap) wrap.hidden = false;
+    initLumaCheckout();
     return;
   }
 
   if (wrap) wrap.hidden = true;
+}
+
+const lumaScript = document.getElementById('luma-checkout');
+if (lumaScript) {
+  lumaScript.addEventListener('load', initLumaCheckout);
 }
 
 document.querySelectorAll('.gateway-card.is-pending').forEach((el) => {

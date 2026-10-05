@@ -712,17 +712,10 @@ ul { list-style: none; }
   margin-bottom: 1.5rem;
 }
 
-.luma-embed-wrap {
-  width: 100%;
+.luma-checkout-wrap {
+  display: flex;
+  justify-content: center;
   margin-bottom: 1.25rem;
-}
-.luma-embed-wrap iframe {
-  display: block;
-  width: 100%;
-  min-height: 420px;
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-md);
-  background: #fff;
 }
 
 .gateway-also {
