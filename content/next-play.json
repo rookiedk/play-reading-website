@@ -10,7 +10,8 @@
   "directions": "Not at our usual pub this month. Still in Oakville.",
   "locationNote": "The address will be in a follow-up email to everyone who RSVPs.",
   "rsvp": {
-    "eventbrite": "",
+    "eventbrite": "https://www.eventbrite.com/e/gta-play-reading-group-tickets-2003035171117",
+    "eventbriteEventId": "2003035171117",
     "luma": "https://luma.com/event/evt-NOmbwZDKnyrEJ0Q",
     "lumaEventId": "evt-NOmbwZDKnyrEJ0Q",
     "facebook": ""

@@ -228,9 +228,11 @@ function bindRsvpLink(id, url) {
   if (cta) cta.textContent = cta.dataset.pending || cta.textContent;
 }
 
+const EVENTBRITE_URL = 'https://www.eventbrite.com/e/gta-play-reading-group-tickets-2003035171117';
+
 function bindRsvpLinks(rsvp) {
   const links = rsvp && typeof rsvp === 'object' ? rsvp : {};
-  bindRsvpLink('rsvp-eventbrite', links.eventbrite);
+  bindRsvpLink('rsvp-eventbrite', links.eventbrite || EVENTBRITE_URL);
   bindRsvpLink('rsvp-facebook', links.facebook);
   bindLumaCheckout(links);
 }
